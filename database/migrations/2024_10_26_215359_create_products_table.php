@@ -23,8 +23,7 @@ return new class extends Migration
             $table->enum('stock_status', ['available', 'sold out']);
             $table->timestamps();
 
-            // Foreign key constraint
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
+            $table->foreign('seller_id')->references('id')->on('seller')->onDelete('set null');
         });
     }
 
@@ -35,7 +34,7 @@ return new class extends Migration
     {
         // Optional: If you want to explicitly drop the foreign key first
         Schema::table('products', function (Blueprint $table) {
-            $table->dropForeign(['user_id']); // Drop the foreign key constraint
+            $table->dropForeign(['seller_id']); // Drop the foreign key constraint
         });
 
         Schema::dropIfExists('products'); // Drop the products table
