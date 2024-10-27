@@ -9,3 +9,6 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 Route::post('/create-user', [UserController::class,'store_a_user']);
 Route::post('/login', [UserController::class,'login']);
+Route::post('/admin-login', [UserController::class,'admin_login']);
+Route::post('/admin-register', [UserController::class,'admin_register']);
+
